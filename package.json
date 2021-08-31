@@ -1,0 +1,46 @@
+{
+	"name": "vscode-readonly-extension",
+	"displayName": "VSCode ReadOnly Extension",
+	"description": "Make editor read-only (no effect on typing)",
+	"version": "1.0.0",
+	"publisher": "dna2github",
+	"repository": "https://github.com/dna2github/vscode-readonly-extension",
+	"engines": {
+		"vscode": "^1.34.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": [{
+			"title": "Editor ReadOnly Mode",
+			"properties": {
+				"editor.readOnly": {
+					"type": "boolean",
+					"default": true,
+					"description": "make editor contents read-only (no effect on typing)",
+					"scope": "window"
+				}
+			}
+		}]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint . --ext .ts,.tsx",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.0",
+		"@types/vscode": "^1.34.0",
+		"@typescript-eslint/eslint-plugin": "^4.16.0",
+		"@typescript-eslint/parser": "^4.16.0",
+		"eslint": "^7.21.0",
+		"typescript": "^4.2.2",
+		"vsce": "^1.96.1"
+	}
+}
